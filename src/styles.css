@@ -1,0 +1,107 @@
+body {
+  font-family: sans-serif;
+  background-color: #a0ddc4;
+  color: #353535;
+  text-align: center;
+}
+
+.topbar {
+  background-color: #ffffff;
+  background: linear-gradient(#a0ddc4, #ffffff);
+  height: 30%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.progressContainer {
+  background-color: #301c61;
+  width: 60%;
+  margin: auto;
+  height: 23.5px;
+}
+
+.gameProgress {
+  text-align: right;
+  color: #fff;
+  background-color: #bdf752;
+  padding: 1.5px 1.5px;
+  height: 22px;
+}
+.progressContainer,
+.gameProgress {
+  border-radius: 4px;
+}
+
+/* 1. The board should have collapsed 
+and 1px solid black border */
+table {
+  text-align: center;
+  border-collapse: collapse;
+  min-height: 200px;
+}
+
+td {
+  border: 1px solid #000000;
+  /* 2. Board cell should have size 60px x 60 px */
+  height: 60px;
+  width: 60px;
+  /* 3. Board cell should have text aligned to the center*/
+  text-align: center;
+}
+
+/* 4. Cells with first player’s marks should have symbols ‘x’ 
+and have background colored with the color described by 
+RGB code 124, 252, 0; */
+.x {
+  background-color: rgb(124, 252, 0);
+}
+.x::after {
+  content: "x";
+}
+/* 5. Cells with second player’s marks should have symbols ‘o’ 
+and have background colored with the color described by 
+RGB code 250, 128, 114; */
+.o {
+  background-color: rgb(250, 128, 114);
+}
+.o::after {
+  content: "o";
+}
+/* 6. Both symbols should have ‘Helvetica’ font
+and sized as 30px */
+x,
+o {
+  font-size: 30px;
+  font-family: Helvetica;
+}
+.neutral {
+  background-color: #a0ddc4;
+}
+h1 {
+  font-family: trebuchet ms;
+  color: rgb(6, 131, 83);
+  font-size: 24px;
+  word-spacing: 2px;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px #fff;
+  text-align: center;
+}
+h2 {
+  font-family: trebuchet ms;
+  color: rgb(6, 131, 83);
+  font-size: 18px;
+  word-spacing: 2px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+h3 {
+  font-family: trebuchet ms;
+  color: rgb(94, 199, 9);
+  font-size: 20px;
+  word-spacing: 2px;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px #fff;
+  text-align: center;
+}
