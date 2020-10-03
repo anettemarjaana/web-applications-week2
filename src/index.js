@@ -93,10 +93,10 @@ function checkTurns(lastround) {
   should be skipped. */
 
   if (checker < 0) {
-    if (lastround === 1) {
+    if (lastround == 1) {
       alert("Player 1 lost their turn!");
       lastround = 2;
-    } else {
+    } else if (lastround == 2) {
       alert("Player 2 lost their turn!");
       lastround = 1;
     }
