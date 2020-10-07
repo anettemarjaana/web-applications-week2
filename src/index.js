@@ -19,10 +19,12 @@ if (document.readyState !== "loading") {
 function initializeCode() {
   console.log("Initializing");
   var firstgame = 0;
-  console.log("First game!");
-  renderCells(); // finish the table
-  moveProgressBar();
-  firstgame++;
+  if (firstgame === 0) {
+    console.log("First game!");
+    renderCells(); // finish the table
+    moveProgressBar();
+    firstgame++;
+  }
 
   // Button to start a new game.
   const button = document.getElementById("rematch");
@@ -32,7 +34,7 @@ function initializeCode() {
 
     /* The board is only rendered once - on the first
     time that the game is played. */
-    if (firstgame != 0) {
+    if (firstgame !== 0) {
       /* When the button is clicked, the old table is emptied and the game
       can be started over. */
       emptyCells();
@@ -94,10 +96,10 @@ function checkTurns(lastround) {
 
   if (checker < 0) {
     if (lastround == 1) {
-      alert("Player 1 lost their turn!");
+      //alert("Player 1 lost their turn!");
       lastround = 2;
     } else if (lastround == 2) {
-      alert("Player 2 lost their turn!");
+      //alert("Player 2 lost their turn!");
       lastround = 1;
     }
     /* Set the next turn's player symbol: */
@@ -342,7 +344,7 @@ function moveProgressBar() {
     - start moveProgressBar over */
     if (time <= 0) {
       clearInterval(timerID);
-      alert("Time ended!");
+      //alert("Time ended!");
       checker = -1;
       var lastround = document.getElementById("samplepar").innerHTML;
       checkTurns(lastround);
