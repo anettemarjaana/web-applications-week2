@@ -16,16 +16,14 @@ if (document.readyState !== "loading") {
   });
 }
 
-if (checker < 0) {
-  /* If it has taken longer than 10 seconds for
-  a click -> switch turns */
-  var lastround = document.getElementById("samplepar").innerHTML;
-  checkTurns(lastround);
-}
-
 function initializeCode() {
   console.log("Initializing");
   var firstgame = 0;
+  console.log("First game!");
+  renderCells(); // finish the table
+  moveProgressBar();
+  firstgame++;
+
   // Button to start a new game.
   const button = document.getElementById("rematch");
 
@@ -34,11 +32,7 @@ function initializeCode() {
 
     /* The board is only rendered once - on the first
     time that the game is played. */
-    if (firstgame === 0) {
-      console.log("First game!");
-      renderCells(); // finish the table
-      firstgame++;
-    } else {
+    if (firstgame != 0) {
       /* When the button is clicked, the old table is emptied and the game
       can be started over. */
       emptyCells();
@@ -46,6 +40,11 @@ function initializeCode() {
     /* When a new game is started, the clock starts ticking right away.
     If the time passes, the player first in turn will lose their turn
     (the global variable checker becomes -1) */
+    if (timerID !== false) {
+      // if in the middle of the interval
+      clearInterval(timerID);
+      timerID = false;
+    }
     moveProgressBar();
     /* A click on any cell of the board will stop the last player's turn
     and start the next one's. This is handled in the renderCells 
@@ -74,6 +73,7 @@ function renderCells() {
       // Creating 5 columns as well
       // Columns are created by inserting 5 cells into each row
       var td = tr.insertCell();
+      td.className = "neutral";
 
       /* Make each rendered cell clickable */
       td.addEventListener("click", function () {
@@ -159,7 +159,9 @@ function gameFunction(td, lastround) {
 }
 
 function fillCell(cell, playerno) {
-  if (cell.innerHTML === "") {
+  var cellA = cell.getAttribute("class");
+  console.log("CELL ATTRIBUTE " + cellA);
+  if (cellA === "neutral") {
     // If the on-clicked cell is empty, the cell is filled with the symbol
     // of the current player.
     console.log("Player " + playerno + " is getting a cell filled!");
@@ -313,24 +315,6 @@ function calculateWinCondition(playerno) {
   return win;
 }
 
-function emptyCells() {
-  console.log("Emptying the table cells");
-
-  var tbl = document.getElementById("board");
-  var i, j, col, cell;
-  // As many rounds i as there are rows:
-  for (i = 0; i < tbl.rows.length; i++) {
-    col = tbl.rows[i].cells.length;
-    // As many rounds j as there are columns:
-    for (j = 0; j < col; j++) {
-      cell = tbl.rows[i].cells[j];
-      cell.innerHTML = ""; // fill each cell with empty
-      cell.className = "neutral"; // colour each cell back to neutral
-    }
-  }
-  console.log("All cells emptied.");
-}
-
 /* The progress bar moves forward as the time moves forward.
 Each turn is max. 10 seconds by length.
 When the length exceeds 10 sec, the turn will be automatically switched.
@@ -360,6 +344,8 @@ function moveProgressBar() {
       clearInterval(timerID);
       alert("Time ended!");
       checker = -1;
+      var lastround = document.getElementById("samplepar").innerHTML;
+      checkTurns(lastround);
     } else {
       /* In each interval, there's one second less time which
     is shown on the bar. */
@@ -369,4 +355,22 @@ function moveProgressBar() {
       document.getElementById("timeleft").innerHTML = time;
     }
   }
+}
+
+function emptyCells() {
+  console.log("Emptying the table cells");
+
+  var tbl = document.getElementById("board");
+  var i, j, col, cell;
+  // As many rounds i as there are rows:
+  for (i = 0; i < tbl.rows.length; i++) {
+    col = tbl.rows[i].cells.length;
+    // As many rounds j as there are columns:
+    for (j = 0; j < col; j++) {
+      cell = tbl.rows[i].cells[j];
+      cell.innerHTML = ""; // fill each cell with empty
+      cell.className = "neutral"; // colour each cell back to neutral
+    }
+  }
+  console.log("All cells emptied.");
 }

@@ -1,13 +1,13 @@
 body {
   font-family: sans-serif;
-  background-color: #a0ddc4;
-  color: #353535;
+  background-color: #65b689;
+  color: #301c61;
   text-align: center;
 }
 
 .topbar {
   background-color: #ffffff;
-  background: linear-gradient(#a0ddc4, #ffffff);
+  background: linear-gradient(#3ce276, #a0ddc4);
   height: 30%;
   width: 100%;
   overflow: hidden;
@@ -17,7 +17,7 @@ body {
 
 .progressContainer {
   background-color: #301c61;
-  width: 60%;
+  width: 50%;
   margin: auto;
   height: 23.5px;
 }
@@ -32,6 +32,31 @@ body {
 .progressContainer,
 .gameProgress {
   border-radius: 4px;
+}
+
+.button1 {
+  background-color: #4caf50;
+  color: white;
+  border: 2px solid #4caf50;
+  padding: 14px 40px;
+  border-radius: 4px;
+  transition-duration: 0.4s;
+}
+
+.button1:hover {
+  background-color: white;
+  color: #4caf50;
+  box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.24), 0 15px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+.buttonD {
+  background-color: #4caf50;
+  color: white;
+  border: 2px solid #4caf50;
+  padding: 14px 40px;
+  border-radius: 4px;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* 1. The board should have collapsed 
@@ -98,10 +123,10 @@ h2 {
 }
 h3 {
   font-family: trebuchet ms;
-  color: rgb(94, 199, 9);
+  color: rgb(206, 113, 103);
   font-size: 20px;
   word-spacing: 2px;
   letter-spacing: 2px;
-  text-shadow: 1px 1px 2px #fff;
+  text-shadow: 1px 1px 2px rgb(253, 215, 215);
   text-align: center;
 }
