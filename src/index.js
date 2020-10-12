@@ -171,12 +171,14 @@ function fillCell(cell, playerno) {
     if (playerno == 1) {
       att.value = "x";
       cell.setAttributeNode(att);
+      cell.innerHTML = "x";
       playerno = 2;
       console.log("New playerno " + playerno);
     } else if (playerno == 2) {
       att.value = "o";
       console.log("The cell is filled with: " + att.value);
       cell.setAttributeNode(att);
+      cell.innerHTML = "o";
       playerno = 1;
       console.log("New playerno " + playerno);
     }

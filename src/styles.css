@@ -84,9 +84,6 @@ RGB code 124, 252, 0; */
   font-size: 30px;
   font-family: Helvetica;
 }
-.x::after {
-  content: "x";
-}
 /* 5. Cells with second player’s marks should have symbols ‘o’ 
 and have background colored with the color described by 
 RGB code 250, 128, 114; */
@@ -94,9 +91,6 @@ RGB code 250, 128, 114; */
   background-color: rgb(250, 128, 114);
   font-size: 30px;
   font-family: Helvetica;
-}
-.o::after {
-  content: "o";
 }
 .neutral {
   background-color: #a0ddc4;
