@@ -96,8 +96,8 @@ RGB code 250, 128, 114; */
 }
 /* 6. Both symbols should have ‘Helvetica’ font
 and sized as 30px */
-x,
-o {
+.x,
+.o {
   font-size: 30px;
   font-family: Helvetica;
 }
